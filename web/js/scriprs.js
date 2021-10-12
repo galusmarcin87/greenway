@@ -389,6 +389,7 @@ $(document).ready(function () {
     APP.search.hide();
   });
   $('.searchBtn').on('click', function (e) {
+    console.log('asd');
     e.preventDefault();
     $('.Search-box').toggleClass('Search-box--open');
   });
