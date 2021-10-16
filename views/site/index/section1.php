@@ -7,51 +7,57 @@ use yii\web\View;
 
 ?>
 
-
-<section class="Section">
+<section class="Section Section--About-us" style="background-image: url(/images/Depositphotos_247767976_xl-2015.jpg)">
     <div class="container">
-        <div>
-            <b><?= Yii::t('db', 'WHO WE ARE'); ?></b>
-        </div>
-        <h1><?= MgHelpers::getSettingTypeText('Home section 1 - title 1 ' . Yii::$app->language, false, 'O nas coś więcej w liczbach i danych.') ?></h1>
-        <div class="section-with-long-bg">
-            <div class="row">
-                <div class="col-lg-6">
-                    <img src="<?= MgHelpers::getSetting('Home section 1 image', false, '/images/img2.jpg') ?>" alt=""/>
-                </div>
-                <div class="col-lg-6">
-                    <div class="uppercase-header"><?= MgHelpers::getSettingTypeText('Home section 1 - subtitle 1 ' . Yii::$app->language, false, 'O platformie') ?></div>
-                    <?= MgHelpers::getSettingTypeText('Home section 1 - text 1 ' . Yii::$app->language, true, '<p>Home section 1 - text 1</p>') ?>
-                    <div class="uppercase-header"><?= MgHelpers::getSettingTypeText('Home section 1 - subtitle 2 ' . Yii::$app->language, false, 'Doświadczenie pokryte wiedzą') ?></div>
-                    <?= MgHelpers::getSettingTypeText('Home section 1 - text 2 ' . Yii::$app->language, true, '<p>Home section 1 - text 2</p>') ?>
-                    <a href="<?= MgHelpers::getSetting('Home section 1 link '. Yii::$app->language, false, '#') ?>" class="btn btn--arrow"
-                    ><?= Yii::t('db', 'see more'); ?> <span>⟶</span></a
-                    >
-                </div>
+        <div class="About-us">
+            <div>
+                <img class="cover-max" src="<?= MgHelpers::getSetting('Home section 1 image', false, '/images/Depositphotos_247767976_xl-2015.jpg') ?>" alt="" />
             </div>
-            <div class="row text-center" style="margin-top: 25px">
-                <div class="col-md-4">
-                    <div class="big-text">
-                        <?= MgHelpers::getSetting('Home section 1 number 1', false, '8') ?>
-                        <p class="small">
-                            <?= MgHelpers::getSettingTypeText('Home section 1 - number 1 text' . Yii::$app->language, true, 'liczba<br/>emisji') ?>
-                        </p>
-                    </div>
+            <div class="About-us__content">
+                <div class="About-us__header">
+                    <?= MgHelpers::getSettingTypeText('Home section 1 - title 1 ' . Yii::$app->language, false, 'Kim jesteśmy') ?><br>
+                    <strong><?= MgHelpers::getSettingTypeText('Home section 1 - title 2 ' . Yii::$app->language, false, 'Nasze doświadczenie') ?></strong>
                 </div>
-                <div class="col-md-4">
-                    <div class="big-text">
-                        <?= MgHelpers::getSetting('Home section 1 number 2', false, '50') ?>
-                        <p class="small">
-                            <?= MgHelpers::getSettingTypeText('Home section 1 - number 2 text' . Yii::$app->language, true, 'mln PLN - kwota<br/>pozyskanych środków') ?>
-                        </p>
+                <?= MgHelpers::getSettingTypeText('Home section 1 - text ' . Yii::$app->language, false, 'Home section 13 - text') ?>
+                <a href="<?= \yii\helpers\Url::to('site/about-us')?>" class="btn btn-orange">
+                    <?= Yii::t('db', 'MORE ABOUT US') ?>
+                    <span></span>
+                </a>
+                <div class="row text-center" style="margin-top: 25px">
+                    <div class="col-md-4">
+                        <div class="big-text">
+                            <div class="icon">
+                                <img src="/svg/inwestycje.svg" alt="">
+                            </div>
+                            <?= MgHelpers::getSetting('Home section 1 number 1', false, '8') ?>
+                            <p class="small">
+                                <?= MgHelpers::getSettingTypeText('Home section 1 - number 1 text' . Yii::$app->language, true, 'liczba inwestycji') ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="big-text">
-                        <?= MgHelpers::getSetting('Home section 1 number 3', false, '10') ?>
-                        <p class="small">
-                            <?= MgHelpers::getSettingTypeText('Home section 1 - number 3 text' . Yii::$app->language, true, 'lat doświadczenia<br/>w nieruchomościach') ?>
-                        </p>
+                    <div class="col-md-4">
+                        <div class="big-text">
+                            <div class="icon">
+                                <img src="/svg/kwota.svg" alt="">
+                            </div>
+                            <?= MgHelpers::getSetting('Home section 1 number 2', false, '50 <small>MLN</small>') ?>
+                            <p class="small">
+                                <?= MgHelpers::getSetting('Home section 1 number 2 text', false, 'kwota
+                                pozyskanych środków') ?>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="big-text">
+                            <div class="icon">
+                                <img src="/svg/czas.svg" alt="">
+                            </div>
+                            <?= MgHelpers::getSetting('Home section 1 number 3', false, '10') ?>
+                            <p class="small">
+                                <?= MgHelpers::getSetting('Home section 1 number 3 text', false, 'lat doświadczenia') ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
