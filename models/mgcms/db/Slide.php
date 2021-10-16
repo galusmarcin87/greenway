@@ -15,6 +15,7 @@ use app\components\mgcms\MgHelpers;
  * @property integer $order
  * @property integer $file_id
  * @property integer $slider_id
+ * @property string $link
  *
  * @property \app\models\mgcms\db\File $file
  * @property \app\models\mgcms\db\Slider $slider
@@ -31,7 +32,7 @@ class Slide extends \app\models\mgcms\db\AbstractRecord
         [['name', 'slider_id'], 'required'],
         [['body'], 'string'],
         [['file_id', 'slider_id' ,'order'], 'integer'],
-        [['name', 'header', 'subheader'], 'string', 'max' => 245]
+        [['name', 'header', 'subheader', 'link'], 'string', 'max' => 245]
     ];
   }
 
@@ -59,6 +60,7 @@ class Slide extends \app\models\mgcms\db\AbstractRecord
         'slider_id' => Yii::t('app', 'Slider'),
         'slider' => Yii::t('app', 'Slider'),
         'order' => Yii::t('app', 'Order'),
+        'link' => Yii::t('app', 'Link'),
     ];
   }
 

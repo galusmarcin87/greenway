@@ -6,44 +6,55 @@ use app\models\mgcms\db\Project;
 use yii\bootstrap\ActiveForm;
 use yii\web\View;
 
-
-
-$index=0;
-
+$slider = \app\models\mgcms\db\Slider::find()->where(['name' => 'main', 'language' => Yii::$app->language])->one();
+if (!$slider) {
+    return false;
+}
 ?>
-
 
 <section class="Slider">
     <div class="owl-carousel owl-theme">
-        <? foreach ($project->files as $file): ?>
-            <? if ($file->isImage()): $index++;?>
-                <div class="item" data-dot="<?= $index ?>>">
-                    <div
-                            class="Slider__item"
-                            style="background-image: url('<?= $file->getImageSrc(1360, 768) ?>')"
-                    >
-                        <div class="container">
-                            <div class="Slider__description">
-                                <div class="Slider__description__header">
-                                    <?= Yii::t('db', 'Investition in'); ?>
-                                    <div><?= $project->name ?></div>
-                                </div>
-                                <div class="Slider__description__content">
-                                    <?= $project->lead ?>
-                                </div>
-                                <a class="btn btn-primary btn-small"
-                                   href="<?= \yii\helpers\Url::to(['site/about-project']) ?>"><?= Yii::t('db', 'More about project'); ?>
+
+        <? foreach ($slider->slides as $slide): ?>
+            <div class="item">
+                <div
+                        class="Slider__item"
+                        style="background-image: url('<?= $slide->file->imageSrc ?>');"
+                >
+                    <div class="container">
+                        <div class="Slider__header">
+                            <span><?= $slide->header ?></span>
+                            <div></div>
+                            <div><?= $slide->subheader ?> <b><?= $slide->body ?></b></div>
+                        </div>
+                        <div class="Slider__nav Custom-nav"></div>
+                        <div class="Slider__footer">
+                            <? if (MgHelpers::getSetting('facebook url')): ?>
+                                <a  href="<?= MgHelpers::getSetting('facebook url') ?>" target="_blank" class="Social-icons__icon">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
-                                <div class="owl-dots">
-                                    <? for ($i = 1; $i <= sizeof($project->files); $i++): ?>
-                                        <div class="owl-dot"><?= $i ?></div>
-                                    <? endfor; ?>
-                                </div>
-                            </div>
+                            <? endif ?>
+                            <? if (MgHelpers::getSetting('youtube url')): ?>
+                                <a  href="<?= MgHelpers::getSetting('youtube url') ?>" target="_blank" class="Social-icons__icon">
+                                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                                </a>
+                            <? endif ?>
+                            <? if (MgHelpers::getSetting('twitter url')): ?>
+                                <a href="<?= MgHelpers::getSetting('twitter url') ?>" target="_blank" class="Social-icons__icon">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            <? endif ?>
+                            <? if (MgHelpers::getSetting('linkedin url')): ?>
+                                <a href="<?= MgHelpers::getSetting('linkedin url') ?>" target="_blank" class="Social-icons__icon">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            <? endif ?>
                         </div>
                     </div>
                 </div>
-            <? endif; ?>
+            </div>
+
         <? endforeach; ?>
+
     </div>
 </section>
