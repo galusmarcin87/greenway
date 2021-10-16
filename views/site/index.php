@@ -10,15 +10,15 @@ use app\models\mgcms\db\Project;
 <?= $this->render('index/slider') ?>
 
 <section
-        class="Section Projects animatedParent"
+        class="Section Projects"
         style="padding-bottom: 75px"
 >
-    <div class="container fadeIn animated">
+    <div class="container">
 
         <div class="Projects__header__wrapper">
-            <h4 class="Projects__header text-center"><?= Yii::t('db', 'Current projects'); ?></h4>
-            <a href="<?= \yii\helpers\Url::to(['project/index']) ?>" class="btn btn--transparent btn--medium">
-                <?= Yii::t('db', 'SEE ALL'); ?>
+            <h1><?= Yii::t('db', 'Current projects'); ?></h1>
+            <a href="<?= \yii\helpers\Url::to(['project/index']) ?>" class="btn btn-link">
+                <?= Yii::t('db', 'See all'); ?>
             </a>
         </div>
 
