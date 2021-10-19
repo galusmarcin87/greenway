@@ -12,45 +12,65 @@ if (!$category) {
     return false;
 }
 $dataProvider = new ActiveDataProvider([
-    'pagination' => ['pageSize' => '3'],
+    'pagination' => ['pageSize' => '1'],
     'query' => Article::find()->where(['category_id' => $category->id])
+        ->andWhere(['status' => Article::STATUS_ACTIVE])
+        ->orderBy('order ASC , created_on DESC'),
+]);
+
+$dataProvider2 = new ActiveDataProvider([
+    'pagination' => false,
+    'query' => Article::find()->where(['category_id' => $category->id])->offset(1)->limit(2)
         ->andWhere(['status' => Article::STATUS_ACTIVE])
         ->orderBy('order ASC , created_on DESC'),
 ]);
 
 $showAllButton = isset($showAllButton) ? $showAllButton : true;
 ?>
-
-
 <section
-        class="Section Projects Projects--list animatedParent Projects--lightBg"
+        class="Section Projects Projects--list Projects--lightBg"
 >
-    <div class="container fadeIn animated">
+    <div class="container">
         <div class="Projects__header__wrapper">
-            <h1 class="text-center"><?= Yii::t('db', 'News'); ?></h1>
+            <h1><?= Yii::t('db', 'News') ?></h1>
+            <a href="<?= $category->linkUrl ?>" class="btn btn-link">
+                <?= Yii::t('db', 'See all') ?>
+            </a>
         </div>
     </div>
-    <div class="container fadeIn animated">
-        <?=
-        ListView::widget([
-            'dataProvider' => $dataProvider,
-            'itemOptions' => [
-                'class' => 'animatedParent'
-            ],
-            'options' => [
-                'class' => 'Projects__sortable animatedParent',
-            ],
-            'layout' => '{items}',
-            'itemView' => function ($model, $key, $index, $widget) {
-                return $this->render('/article/_index', ['model' => $model, 'key' => $key, 'index' => $index, 'widget' => $widget, 'view' => $this]);
-            },
-        ])
+    <div class="container">
+        <div class="Projects__sortable">
+            <div>
+                <?=
+                ListView::widget([
+                    'dataProvider' => $dataProvider,
+                    'itemOptions' => [
+                        'class' => 'animatedParent'
+                    ],
+                    'layout' => '{items}',
+                    'itemView' => function ($model, $key, $index, $widget) {
+                        return $this->render('/article/_index', ['model' => $model, 'key' => $key, 'index' => $index, 'widget' => $widget, 'view' => $this,'full'=> true]);
+                    },
+                ])
 
-        ?>
-    </div>
-    <div class="text-center">
-        <a href="<?= $category->linkUrl ?>" class="btn btn-success btn--medium"> <?= Yii::t('db', 'See all'); ?></a>
+                ?>
+            </div>
+
+                <?=
+                ListView::widget([
+                    'dataProvider' => $dataProvider2,
+                    'itemOptions' => [
+                            'tag' => false,
+                        'class' => ''
+                    ],
+
+                    'layout' => '{items}',
+                    'itemView' => function ($model, $key, $index, $widget) {
+                        return $this->render('/article/_index', ['model' => $model, 'key' => $key, 'index' => $index, 'widget' => $widget, 'view' => $this,'full'=> false]);
+                    },
+                ])
+
+                ?>
+        </div>
     </div>
 </section>
-
-

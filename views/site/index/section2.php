@@ -6,38 +6,25 @@ use yii\web\View;
 
 
 ?>
-<section class="Section Section--white">
+
+<section class="Section Section--Invest" style="background-image: url(<?= MgHelpers::getSetting('Home section 1 image', false, '/images/Depositphotos_11804746_xl-2015.jpg') ?>);">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="image--shadow">
-                    <img src="<?= MgHelpers::getSetting('Home section 1 image', false, '/images/img2.jpg') ?>" alt=""/>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="uppercase-header uppercase-header--reverse">
-                    <?= MgHelpers::getSettingTypeText('Home section 2 - 1 subtitle' . Yii::$app->language, false, 'Chcesz zainwestować') ?>
+            <div class="col-lg-5">
+                <div class="About-us__header">
+                    <?= MgHelpers::getSettingTypeText('Home section 2 - title' . Yii::$app->language, false, 'Chcesz') ?><br>
+                    <strong><?= MgHelpers::getSettingTypeText('Home section 2 - 1 subtitle' . Yii::$app->language, false, 'zainwestować') ?>?</strong>
                 </div>
                 <p class="small">
-                    <?= MgHelpers::getSettingTypeText('Home section 2 - 1 text' . Yii::$app->language, false, 'Home section 2 - 1 text') ?>
+                    <?= MgHelpers::getSettingTypeText('Home section 2 - text 1' . Yii::$app->language, false, 'Home section - 1 text 1') ?>
                 </p>
-                <a href="<?= MgHelpers::getSetting('Home section 2 - 1 link '.Yii::$app->language, false, '#') ?>" class="btn btn--arrow"><?= Yii::t('db', 'see more'); ?> <span>⟶</span></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 text-right">
-                <div class="uppercase-header uppercase-header--reverse">
-                    <?= MgHelpers::getSettingTypeText('Home section 2 - 2 subtitle' . Yii::$app->language, false, 'Chcesz zainwestować') ?>
-                </div>
-                <p class="small">
-                    <?= MgHelpers::getSettingTypeText('Home section 2 - 2 text' . Yii::$app->language, false, 'Home section 2 - 2 text') ?>
+                <p>
+                    <?= MgHelpers::getSettingTypeText('Home section 2 - text 2' . Yii::$app->language, false, 'Home section - 1 text 2') ?>
                 </p>
-                <a href="<?= MgHelpers::getSetting('Home section 2 - 2 link '.Yii::$app->language, false, '#') ?>" class="btn btn--arrow"><?= Yii::t('db', 'see more'); ?> <span>⟶</span></a>
-            </div>
-            <div class="col-lg-6">
-                <div class="image--shadow image--shadow--right">
-                    <img src="<?= MgHelpers::getSetting('Home section 2 image', false, '/images/img3.jpg') ?>" alt=""/>
-                </div>
+                <a href="<?= MgHelpers::getSetting('Home section 2 - link '.Yii::$app->language, false, '#') ?>" class="btn btn-orange" style="margin: 45px; margin-left: 10px;">
+                    <?= Yii::t('db', 'See more') ?>
+                    <span></span>
+                </a>
             </div>
         </div>
     </div>
