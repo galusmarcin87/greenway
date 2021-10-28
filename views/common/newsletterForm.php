@@ -7,37 +7,45 @@ use app\components\mgcms\MgHelpers;
 /* @var $this yii\web\View */
 
 ?>
-<div class="container fadeIn animated">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <h3 class="Header-icon">
-                <?= Yii::t('db', 'Newsletter'); ?>
-                <img class="Header-icon__icon" src="/svg/znaczek.svg" alt=""/>
-            </h3>
-            <div class="animatedParent">
-                <?php $form = ActiveForm::begin(['id' => 'newsletter-form', 'class' => 'fadeIn animated']); ?>
-                <div class="Newsletter__inner">
-                    <div class="Form__group form-group">
-                        <input
-                                class="Form__input form-control"
-                                placeholder="&nbsp;"
-                                id="phone"
-                                name="newsletterEmail"
-                                type="phone"
-                                required
-                        />
-                        <label class="Form__label" for="phone"
-                        ><?= Yii::t('db', 'Enter your email address'); ?></label
-                        >
-                        <input
-                                class="btn btn-primary lowercase"
-                                type="submit"
-                                value="<?= Yii::t('db', 'Sign in'); ?>"
-                        />
+
+<section class="Section" style="position: relative; overflow: hidden;">
+    <img class="Newsletter-bg" src="/svg/newsletter2.svg" alt="" />
+    <div class="container" style="position: relative; z-index: 1;">
+        <h1><?= MgHelpers::getSettingTranslated('newsletter header','newsletter header')?></h1>
+        <div class="Newsletter-wrapper">
+            <div class="Newsletter-icon">
+                <img src="/svg/newsletter.svg" alt=""/>
+            </div>
+            <div class="Newsletter">
+                <?php $form = ActiveForm::begin(['id' => 'newsletter-form', 'class' => 'Form']); ?>
+                    <h2><?= MgHelpers::getSettingTypeText('Newsletter - subheader' . Yii::$app->language, false, 'Newsletter - subheader') ?>
+                    </h2>
+                    <div class="input-wrapper">
+                        <input required class="Form__input" name="newsletterEmail" type="email" placeholder="<?= Yii::t('db', '`Type email address') ?>">
+                        <button type="submit" class="btn btn-orange" onclick="validateNewsletterTerms()"><?= Yii::t('db', 'SIGN IN') ?><span></span>
+                        </button>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="Form__checkbox" type="checkbox" id="n-field-1" required>
+                            <label for="n-field-1">
+                                <?= MgHelpers::getSettingTypeText('Newsletter - accept 1' . Yii::$app->language, false, 'Newsletter - accept 1') ?>
+                            </label>
+                            <br>
+                            <input class="Form__checkbox" type="checkbox" id="n-field-2" required>
+                            <label for="n-field-2"><?= MgHelpers::getSettingTypeText('Newsletter - accept 1' . Yii::$app->language, false, 'Newsletter - accept 1') ?></label>
+                        </div>
+                    </div>
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<script>
+    function validateNewsletterTerms(){
+      if(!$('#n-field-1').is(':checked') || !$('#n-field-2').is(':checked')){
+        alert('<?= Yii::t('db', 'Please accept terms') ?>')
+      }
+    }
+</script>

@@ -10,8 +10,8 @@ if(sizeof($teamUsers) == 0){
 
 ?>
 
-<section class="Section Team animatedParent">
-    <div class="container fadeIn animated">
+<section class="Section Team">
+    <div class="container">
         <h1 class="text-center">Nasz zespół</h1>
         <div class="Team__carousel owl-carousel">
             <? foreach ($teamUsers as $teamUser): ?>
@@ -44,15 +44,6 @@ if(sizeof($teamUsers) == 0){
                         <? if ($teamUser->getModelAttribute('linkedin')): ?>
                             <a class="Social-icons__icon" href="<?= $teamUser->getModelAttribute('linkedin') ?>">
                                 <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            </a>
-                        <? endif ?>
-                        <? if ($teamUser->getModelAttribute('instagram')): ?>
-                            <a class="Social-icons__icon" href="<?= $teamUser->getModelAttribute('instagram') ?>">
-                                <img
-                                        class="Social-icons__icon__img"
-                                        src="/svg/instagram.svg"
-                                        alt=""
-                                />
                             </a>
                         <? endif ?>
                     </div>

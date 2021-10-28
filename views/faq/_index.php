@@ -3,7 +3,7 @@
 
 ?>
 
-<div class="Accordion__card fadeIn animated">
+<div class="Accordion__card">
     <a
             class="Accordion__card__header collapsed"
             role="tab"

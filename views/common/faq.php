@@ -11,11 +11,11 @@ if (!$faq) {
 ?>
 
 
-<section class="Section animatedParent Section--light-background">
-    <div class="container fadeIn animated">
+<section class="Section  Section--light-background">
+    <div class="container  ">
         <h1 class="text-center"><?= Yii::t('db', 'FAQ'); ?></h1>
         <div
-                class="Accordion animatedParent"
+                class="Accordion"
                 id="accordion_custom"
                 role="tablist"
         >
