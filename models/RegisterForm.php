@@ -32,7 +32,7 @@ class RegisterForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password', 'passwordRepeat', 'firstName', 'surname'], 'required'],
+            [['username', 'password', 'passwordRepeat'], 'required'],
             [['password'], StrengthValidator::className(),
                 'min' => 8,
                 'digit' => 1,
@@ -41,7 +41,7 @@ class RegisterForm extends Model
                 'special' => 0,
                 'userAttribute' => 'username'],
             ['passwordRepeat', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t('db', "Passwords don't match")],
-            [['acceptTerms', 'acceptTerms2', 'acceptTerms3', 'acceptTerms4', 'acceptTerms5', 'acceptTerms6'], 'required', 'requiredValue' => 1, 'message' => Yii::t('db', 'This field is required')],
+            [['acceptTerms'], 'required', 'requiredValue' => 1, 'message' => Yii::t('db', 'This field is required')],
             ['username', 'email'],
             ['phone', 'safe'],
 //        [['password'], StrengthValidator::className(), 'min' => 8, 'digit' => 1, 'special' => 1, 'upper' => 1, 'lower' => 1, 'userAttribute' => 'username'],

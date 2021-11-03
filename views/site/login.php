@@ -17,11 +17,9 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false)
 //https://yii2-framework.readthedocs.io/en/stable/guide/security-auth-clients/
 ?>
 
-<?= $this->render('/common/breadcrumps') ?>
 
 <section class="Section Section--big-padding-top Contact">
     <div class="container">
-        <h1 class="text-center"><?= Yii::t('db', 'Log in / register'); ?></h1>
         <div class="Contact__grid">
             <div class="Contact-form">
                 <?php
@@ -32,9 +30,7 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false)
 
                 echo $form->errorSummary($model);
                 ?>
-                <div class="Contact-form__header">
-                    <?= Yii::t('db', 'Login'); ?>
-                </div>
+                <h1 class="Project__header Project__header--light text-center"><?= Yii::t('db', 'Login') ?></h1>
                 <div class="Contact-form__form-group form-group">
                     <?= $form->field($model, 'username')->textInput(['type' => 'text', 'required' => true, 'placeholder' => $model->getAttributeLabel('username')]) ?>
                 </div>
@@ -61,17 +57,16 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false)
 
 
                 <div class="text-center">
-                    <input
-                            style="margin-top: 117px !important"
-                            type="submit"
-                            class="Contact-form__submit btn btn-success btn-block"
-                            value="<?= Yii::t('db', 'Log in'); ?>"
-                    />
+                    <button style="margin-top: 117px !important" type="submit"
+                            class="btn btn-orange Contact-form__submi">
+                        <?= Yii::t('db', 'Log in') ?>
+                        <span></span>
+                    </button>
                 </div>
 
                 <?php ActiveForm::end(); ?>
             </div>
-            <div class="Contact-form">
+            <div class="Contact-form Contact-form--white">
                 <?php
                 $form = ActiveForm::begin([
                     'id' => 'login-form',
@@ -80,16 +75,8 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false)
 
 
                 ?>
-                    <div class="Contact-form__header">
-                        <?= Yii::t('db', 'Register of account'); ?>
-                    </div>
+                <h1 class="Project__header Project__header--light text-center"><?= Yii::t('db', 'Register') ?></h1>
                 <? //echo $form->errorSummary($modelRegister);?>
-                <div class="Contact-form__form-group form-group">
-                    <?= $form->field($modelRegister, 'firstName')->textInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('firstName')]) ?>
-                </div>
-                <div class="Contact-form__form-group form-group">
-                    <?= $form->field($modelRegister, 'surname')->textInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('surname')]) ?>
-                </div>
                 <div class="Contact-form__form-group form-group">
                     <?= $form->field($modelRegister, 'username')->textInput(['type' => 'email', 'required' => true, 'placeholder' => $modelRegister->getAttributeLabel('username')]) ?>
                 </div>
@@ -100,22 +87,19 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false)
                 <div class="Contact-form__form-group form-group">
                     <?= $form->field($modelRegister, 'passwordRepeat')->passwordInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('passwordRepeat')]) ?>
                 </div>
-                <?= $this->render('login/acceptCheckbox',['number' => '','form'=> $form, 'modelRegister' => $modelRegister])?>
-                <?= $this->render('login/acceptCheckbox',['number' => 2,'form'=> $form, 'modelRegister' => $modelRegister])?>
-                <?= $this->render('login/acceptCheckbox',['number' => 3,'form'=> $form, 'modelRegister' => $modelRegister])?>
-                <?= $this->render('login/acceptCheckbox',['number' => 4,'form'=> $form, 'modelRegister' => $modelRegister])?>
-                <?= $this->render('login/acceptCheckbox',['number' => 5,'form'=> $form, 'modelRegister' => $modelRegister])?>
-                <?= $this->render('login/acceptCheckbox',['number' => 6,'form'=> $form, 'modelRegister' => $modelRegister])?>
+                <?= $this->render('login/acceptCheckbox', ['number' => '', 'form' => $form, 'modelRegister' => $modelRegister]) ?>
 
 
-
-                    <div class="text-center">
-                        <input
-                                type="submit"
-                                class="Contact-form__submit btn btn-success btn-block"
-                                value="<?= Yii::t('db', 'Register'); ?>"
-                        />
-                    </div>
+                <div class="text-center">
+                    <button
+                            type="submit"
+                            class="Contact-form__submit btn btn-orange"
+                            value="<?= Yii::t('db', 'Register') ?>"
+                    >
+                        <?= Yii::t('db', 'Register') ?>
+                        <span></span>
+                    </button>
+                </div>
 
                 <?php ActiveForm::end(); ?>
             </div>
