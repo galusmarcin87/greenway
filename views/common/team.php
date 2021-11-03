@@ -12,7 +12,10 @@ if(sizeof($teamUsers) == 0){
 
 <section class="Section Team">
     <div class="container">
-        <h1 class="text-center">Nasz zespół</h1>
+        <h1 class="Project__header Project__header--light">
+            <?= Yii::t('db', 'Our team') ?>
+            <div id="teamNav" class="Custom-nav"></div>
+        </h1>
         <div class="Team__carousel owl-carousel">
             <? foreach ($teamUsers as $teamUser): ?>
                 <div class="item Team__item">

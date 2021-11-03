@@ -193,7 +193,7 @@ const mapStyles = [
   },
 ];
 
-const initMap = () => {
+const initMap2 = () => {
   var myLatLng = { lat: 52.249502, lng: 21.0435739 };
   // Create a map object and specify the DOM element for display.
   map = new google.maps.Map(document.getElementById('map'), {

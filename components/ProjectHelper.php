@@ -36,7 +36,7 @@ class ProjectHelper extends \yii\base\Component
                     'class' => "Contact-form__label",
                     'tag' => 'label',
                 ],
-                'template' => "{beginWrapper}{input}\n\n{error}{endWrapper}",
+                'template' => "{beginLabel}{label}{input}\n\n{error}{endLabel}",
                 'inputOptions' => ['class' => 'Contact-form__input form-control'],
                 'labelOptions' => [
                     'class' => "Contact-form__label",
