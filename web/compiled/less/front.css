@@ -16,3 +16,10 @@
 .top10 {
   margin-top: 10px;
 }
+.Pagination .page-item.disabled {
+  display: none;
+}
+.Pagination .page-item.page-link--active a {
+  background: #22a740;
+  color: #fff;
+}
