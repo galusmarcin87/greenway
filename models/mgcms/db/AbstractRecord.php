@@ -15,7 +15,7 @@ use yii\db\Expression;
 class AbstractRecord extends \yii\db\ActiveRecord
 {
 
-    use \mootensai\relation\RelationTrait {
+    use \app\components\mgcms\RelationTrait {
         saveAll as saveAllRelationTrait;
     }
 

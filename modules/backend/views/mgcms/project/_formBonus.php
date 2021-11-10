@@ -23,7 +23,7 @@
         ],
         'attributes' => [
             "id" => ['type' => TabularForm::INPUT_HIDDEN_STATIC, 'columnOptions' => ['hidden' => true]],
-            'from' => ['type' => TabularForm::INPUT_TEXT, 'label' => 'Nagłówek'],
+            //'from' => ['type' => TabularForm::INPUT_TEXT, 'label' => 'Nagłówek'],
             //'to' => ['type' => TabularForm::INPUT_TEXT, 'label' => 'Do'],
             'value' => ['type' => TabularForm::INPUT_TEXT, 'label' => 'Tekst'],
             'del' => [

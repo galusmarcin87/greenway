@@ -26,6 +26,14 @@ use kartik\icons\Icon;
         'isNewRecord' => ($model->isNewRecord) ? 1 : 0
     ]
 ]);
+\mootensai\components\JsBlock::widget(['viewFile' => '_script', 'pos' => \yii\web\View::POS_END,
+    'viewParams' => [
+        'class' => 'ProjectUser',
+        'relID' => 'project-user',
+        'value' => \yii\helpers\Json::encode($model->projectUsers),
+        'isNewRecord' => ($model->isNewRecord) ? 1 : 0
+    ]
+]);
 yii\jui\JuiAsset::register($this);
 ?>
 
@@ -234,6 +242,12 @@ yii\jui\JuiAsset::register($this);
             'label' => '<i class="glyphicon glyphicon-book"></i> ' . Html::encode(Yii::t('app', 'Lista cech')),
             'content' => $this->render('_formBonus', [
                 'row' => \yii\helpers\ArrayHelper::toArray($model->bonuses),
+            ]),
+        ],
+        [
+            'label' => '<i class="glyphicon glyphicon-book"></i> ' . Html::encode(Yii::t('app', 'Opiekunowie')),
+            'content' => $this->render('_formProjectUser', [
+                'row' => \yii\helpers\ArrayHelper::toArray($model->projectUsers),
             ]),
         ],
 //        [

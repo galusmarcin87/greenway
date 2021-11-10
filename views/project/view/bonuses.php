@@ -11,7 +11,7 @@ use yii\web\View;
 <ul class="List-custm__checklist">
     <? foreach ($model->bonuses as $bonus): ?>
     <li class="List-custm__checklist__item">
-        <strong><?= $bonus->from ?></strong> <?= $bonus->value ?>
+        <?= $bonus->value ?>
     </li>
     <? endforeach; ?>
 

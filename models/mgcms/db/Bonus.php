@@ -25,7 +25,7 @@ class Bonus extends \app\models\mgcms\db\AbstractRecord
     public function rules()
     {
         return [
-            [['from', 'value', 'project_id'], 'required'],
+            [['value', 'project_id'], 'required'],
             [['to', 'project_id'], 'integer'],
             [['from'], 'string', 'max' => 255],
             [['value'], 'string'],

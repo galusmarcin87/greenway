@@ -51,9 +51,12 @@ use yii\helpers\Html;
  * @property \app\models\mgcms\db\Payment[] $payments
  * @property \app\models\mgcms\db\File $file
  * @property \app\models\mgcms\db\File $flag
+ * @property \app\models\mgcms\db\ProjectUser[] $projectUsers
+ * @property \app\models\mgcms\db\User[] $users
  */
 class Project extends \app\models\mgcms\db\AbstractRecord
 {
+    use \app\components\mgcms\RelationTrait;
     use LanguageBehaviorTrait;
 
     public $languageAttributes = ['name', 'lead', 'text', 'text2', 'buy_token_info'];
@@ -207,5 +210,21 @@ class Project extends \app\models\mgcms\db\AbstractRecord
 
     public function getLtv(){
         return $this->value ? (number_format($this->money_full / $this->value, 2) * 100).'%' : '';
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProjectUsers()
+    {
+        return $this->hasMany(\app\models\mgcms\db\ProjectUser::className(), ['project_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(\app\models\mgcms\db\User::className(), ['id' => 'user_id'])->viaTable('project_user', ['project_id' => 'id']);
     }
 }
