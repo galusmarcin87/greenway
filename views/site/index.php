@@ -36,7 +36,7 @@ use app\models\mgcms\db\Project;
 
 <?= $this->render('/common/team') ?>
 
-<?= $this->render('index/cooperateWith') ?>
+<?= $this->render('/common/cooperateWith') ?>
 
 <?= $this->render('/common/faq') ?>
 

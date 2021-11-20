@@ -9,167 +9,101 @@ use app\components\mgcms\MgHelpers;
 $this->title = Yii::t('db', 'About us');
 
 ?>
-<style>
-    .List-custm__checklist__item:before {
-        content: '';
-        width: var(--size);
-        height: var(--size);
-        background: #dbe3e9;
-        border-radius: 3px;
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-    .List-custm__checklist__item:after {
-        content: '\2713';
-        width: var(--size);
-        height: var(--size);
-        color: #35a1d9;
-        position: absolute;
-        font-size: 30px;
-        left: 0%;
-        font-weight: bold;
-        top: 0%;
-        display: -ms-grid;
-        display: grid;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-</style>
-<?= $this->render('/common/breadcrumps') ?>
-<section class="Section  Section--white">
+<section class="Section Section--About-us" style="background: #fff !important">
     <div class="container">
-        <div class="text-center">
-            <b><?= Yii::t('db', 'ABOUT US'); ?></b>
-        </div>
-        <h1 class="text-center"><?= Yii::t('db', 'and our experience'); ?></h1>
-        <div class="row animatedParent">
-            <div class="col-md-6 fadeIn animated">
-                <p class="big">
-                    <?= MgHelpers::getSetting('about us section 1 column 1 header ' . Yii::$app->language, false, 'about us section 1 column 1 header') ?>
-                </p>
+        <div class="About-us" style="grid-template-columns: 1fr 0.6fr;">
+            <div class="About-us__content" style="padding-top: 0; padding-left: 0;">
+                <div class="About-us__header">
+                    <?= Yii::t('db', 'About us') ?>
+                </div>
                 <p>
-                    <?= MgHelpers::getSetting('about us section 1 column 1 text ' . Yii::$app->language, false, 'about us section 1 column 1 text') ?>
+                    <?= MgHelpers::getSetting('about us section 1 text 1 ' . Yii::$app->language, true, 'about us section 1 text 1') ?>
                 </p>
+                <div class="row text-center" style="margin-top: 60px; margin-bottom: 60px;">
+                    <div class="col-md-4">
+                        <div class="big-text">
+                            <div class="icon">
+                                <img src="/svg/inwestycje.svg" alt="">
+                            </div>
+                            <?= MgHelpers::getSetting('about us numbers number 1' . Yii::$app->language, false, '8') ?>
+                            <p class="small">
+                                <?= MgHelpers::getSetting('about us numbers text 1' . Yii::$app->language, false, 'liczba inwestycji') ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="big-text">
+                            <div class="icon">
+                                <img src="/svg/kwota.svg" alt="">
+                            </div>
+                            <?= MgHelpers::getSetting('about us numbers number 2' . Yii::$app->language, false, '50 <small>MLN</small>') ?>
+
+                            <p class="small">
+                                <?= MgHelpers::getSetting('about us numbers text 2' . Yii::$app->language, false, 'kwota pozyskanych środków') ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="big-text">
+                            <div class="icon">
+                                <img src="/svg/czas.svg" alt="">
+                            </div>
+                            <?= MgHelpers::getSetting('about us numbers number 3' . Yii::$app->language, false, '10') ?>
+                            <p class="small">
+                                <?= MgHelpers::getSetting('about us numbers text 3 '. Yii::$app->language, false, 'lat doświadczenia') ?>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <?= MgHelpers::getSetting('about us section 1 text 2 ' . Yii::$app->language, true, 'about us section 1 text 2') ?>
+
             </div>
-            <div class="col-md-6 fadeIn animated">
-                <p>
-                    <?= MgHelpers::getSetting('about us section 1 column 2 header ' . Yii::$app->language, false, 'about us section 1 column 2 header') ?>
-                </p>
-                <p>
-                    <?= MgHelpers::getSetting('about us section 1 column 2 text ' . Yii::$app->language, false, 'about us section 1 column 2 text') ?>
-                </p>
+            <div>
+                <img class="cover-max" src="<?= MgHelpers::getSetting('about us section 1 image ', true, '/images/Depositphotos_247767976_xl-2015.jpg') ?>" alt="" />
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <div class="About-us--small" style="background-image: url(<?= MgHelpers::getSetting('about us section 2 background image 1 ', false, '/images/Depositphotos_147341459_xl-2015.jpg') ?>);">
+                    <div class="About-us__header" style="margin-bottom: 30px;">
+                        <?= MgHelpers::getSetting('about us section 2 header 1 ' . Yii::$app->language, false, 'about us section 2 header 1 ') ?><br/>
+                        <strong><?= MgHelpers::getSetting('about us section 2 subheader 1 ' . Yii::$app->language, false, 'about us section 2 subheader 1 ') ?><br/></strong>
+                    </div>
+                    <?= MgHelpers::getSetting('about us section 2 text 1 ' . Yii::$app->language, true, 'about us section 2 text 1 ') ?>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="About-us--small" style="background-image: url(<?= MgHelpers::getSetting('about us section 2 background image 2 ', false, '/images/Depositphotos_147341459_xl-2015.jpg') ?>);">
+                    <div class="About-us__header" style="margin-bottom: 30px;">
+                        <?= MgHelpers::getSetting('about us section 2 header 2 ' . Yii::$app->language, false, 'about us section 2 header 2 ') ?><br/>
+                        <strong><?= MgHelpers::getSetting('about us section 2 subheader 2 ' . Yii::$app->language, false, 'about us section 2 subheader 2 ') ?><br/></strong>
+                    </div>
+                    <?= MgHelpers::getSetting('about us section 2 text 2 ' . Yii::$app->language, true, 'about us section 2 text 2 ') ?>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
-
-<section>
-    <div class="container">
-        <div class="section-with-long-bg">
-            <div class="row">
-                <div class="col-lg-6">
-                    <img src="<?= MgHelpers::getSetting('about us section 2 image', false, '/images/img3.jpg') ?>"
-                         alt=""/>
-                </div>
-                <div class="col-lg-6">
-                    <div class="uppercase-header"><?= MgHelpers::getSetting('about us section 2 header ' . Yii::$app->language, false, 'O platformie') ?></div>
-                    <p class="big">
-                        <?= MgHelpers::getSetting('about us section 2 text 1 ' . Yii::$app->language, false, 'about us section 2 text 1') ?>
-                    </p>
-                    <p class="small">
-                        <?= MgHelpers::getSetting('about us section 2 text 2 ' . Yii::$app->language, false, 'about us section 2 text 2') ?>
-                    </p>
-                </div>
+<div class="container">
+    <section class="Section-border">
+        <div class="About-us__header" style="margin-bottom: 30px;">
+            <?= Yii::t('db', 'What is') ?>
+            <strong>Green<span>way</span>?</strong>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <?= MgHelpers::getSetting('about us section 3 text 1 ' . Yii::$app->language, true, '<p>about us section 3 text 1 </p>') ?>
+            </div>
+            <div class="col-md-6">
+                <?= MgHelpers::getSetting('about us section 3 text 2 ' . Yii::$app->language, true, '<p>about us section 3 text 2 </p>') ?>
             </div>
         </div>
-    </div>
-</section>
-
-<section class="Section Section--white">
-    <div class="container">
-        <div class="text-center">
-            <b><?= Yii::t('db', 'OUR COMPANY'); ?></b>
-        </div>
-        <h1 class="text-center"><?= Yii::t('db', 'with numbers'); ?></h1>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <div class="big-text">
-                    <?= MgHelpers::getSetting('about us section 3 number 1', false, '8') ?>
-                    <p class="small">
-                        <?= MgHelpers::getSetting('about us section 3 text 1 ' . Yii::$app->language, false, 'liczba<br /> emisji') ?>
-
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="big-text">
-                    <?= MgHelpers::getSetting('about us section 3 number 2', false, '50') ?>
-                    <p class="small">
-                        <?= MgHelpers::getSetting('about us section 3 text 2 ' . Yii::$app->language, false, 'mln PLN - kwota<br /> pozyskanych środków') ?>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="big-text">
-                    <?= MgHelpers::getSetting('about us section 3 number 3', false, '10') ?>
-                    <p class="small">
-                        <?= MgHelpers::getSetting('about us section 3 text 3 ' . Yii::$app->language, false, 'lat doświadczenia<br/> w nieruchomościach') ?>
-
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 
 
-<section class="Section Section--white">
-    <div class="container">
-        <div class="text-center">
-            <b><?= MgHelpers::getSetting('about us section 4 header ' . Yii::$app->language, false, 'JAK DZIAŁAMY') ?></b>
-        </div>
-        <h1 class="text-center"><?= MgHelpers::getSetting('about us section 4 subheader ' . Yii::$app->language, false, 'na rynku inwestycji') ?></h1>
-        <ul class="List-custm__checklist">
-            <li class="List-custm__checklist__item">
-                <strong><?= MgHelpers::getSetting('about us section 4 header 1 ' . Yii::$app->language, false, 'Zakup tokenów') ?></strong>
-                <?= MgHelpers::getSetting('about us section 4 text 1 ' . Yii::$app->language, false, 'about us section 4 text 1') ?>
-            </li>
-            <li class="List-custm__checklist__item">
-                <strong><?= MgHelpers::getSetting('about us section 4 header 2 ' . Yii::$app->language, false, 'Zakup tokenów') ?></strong>
-                <?= MgHelpers::getSetting('about us section 4 text 2 ' . Yii::$app->language, false, 'about us section 4 text 2') ?>
-            </li>
-            <li class="List-custm__checklist__item">
-                <strong><?= MgHelpers::getSetting('about us section 4 header 3 ' . Yii::$app->language, false, 'Zakup tokenów') ?></strong>
-                <?= MgHelpers::getSetting('about us section 4 text 3 ' . Yii::$app->language, false, 'about us section 4 text 3') ?>
-            </li>
-            <li class="List-custm__checklist__item">
-                <strong><?= MgHelpers::getSetting('about us section 4 header 4 ' . Yii::$app->language, false, 'Zakup tokenów') ?></strong>
-                <?= MgHelpers::getSetting('about us section 4 text 4 ' . Yii::$app->language, false, 'about us section 4 text 4') ?>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section class="Section" style="overflow: hidden">
-    <div class="container">
-        <div class="section-with-long-bg section-with-long-bg--right">
-            <div class="uppercase-header"><?= MgHelpers::getSetting('about us section 5 header ' . Yii::$app->language, false, 'O platformie') ?></div>
-
-            <p class="small">
-                <?= MgHelpers::getSetting('about us section 5 text 1 ' . Yii::$app->language, false, 'about us section 5 text 1') ?>
-            </p>
-            <p class="small">
-                <?= MgHelpers::getSetting('about us section 5 text 2 ' . Yii::$app->language, false, 'about us section 5 text 2') ?>
-            </p>
-        </div>
-    </div>
-</section>
-
-<?= $this->render('/common/movies')?>
 <?= $this->render('/common/team')?>
 <?= $this->render('/common/faq')?>
+<?= $this->render('/common/cooperateWith') ?>
