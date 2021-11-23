@@ -8,34 +8,29 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => \yii\helpers\Url::canoni
 $this->params['breadcrumbs'][] = $model->title;
 
 ?>
-<?= $this->render('/common/breadcrumps') ?>
-
-<section class="Section News News--single animatedParent">
-    <div class="container fadeIn animated">
+<section class="Section Project">
+    <div class="container">
         <div>
-            <div class="Card">
-                <div class="Card__header__wrapper">
-                    <? if ($model->file && $model->file->isImage()): ?>
-                        <img class="Card__image" src="<?= $model->file->getImageSrc() ?>"/>
-                    <? endif ?>
-                    <div class="Card__header-block">
-                        <div class="Projects__card__date">
-                            <img
-                                    src="/svg/kalendarz.svg"
-                                    class="Projects__card__date__ico"
-                                    alt=""
-                            />
-                            <?= date('d.m.Y', strtotime($model->created_on)) ?>
-                        </div>
-                        <h1><?= $model->title ?></h1>
+            <h1 class="Project__header Project__header--light"><?=$model->title?></h1>
+            <div class="Section--grey">
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= $model->excerpt?>
+                    </div>
+                    <div class="col-md-6">
+                        <? if ($model->file && $model->file->isImage()): ?>
+                            <img class="Card__image" src="<?= $model->file->getImageSrc() ?>"/>
+                        <? endif ?>
                     </div>
                 </div>
-                <div class="Card__body">
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
                     <?= $model->content ?>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
-
-<?= $this->render('/common/news') ?>
